@@ -1,23 +1,13 @@
-import { useState } from "react";
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import CreateProjectPage from "./pages/create-project/index.jsx";
 
-export default function CreateProjectPage() {
-  const [name, setName] = useState("");
-
-  function handleSubmit(e) {
-    e.preventDefault();
-    console.log("Submitted name:", name); // placeholder for future API call
-    setName(""); 
-  }
-
-  return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        placeholder="Enter name"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-      />
-      <button type="submit">Submit</button>
-    </form>
-  );
-}
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<div>Home Page Placeholder</div>} />
+      <Route path="/create-project" element={<CreateProjectPage />} />
+    </Routes>
+  </BrowserRouter>
+);
